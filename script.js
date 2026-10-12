@@ -10,7 +10,7 @@
 
 const phoneNumber = "393381285212";
 
-const youtubeVideoId = "5wxOXoLYeKs";
+
 
 
 /* ==========================================
@@ -23,7 +23,6 @@ let envelopeOpened = false;
 
 let revealedClues = new Set();
 
-let musicPanelOpen = false;
 
 
 /* ==========================================
@@ -34,17 +33,6 @@ const progressBar = document.getElementById(
     "progressBar"
 );
 
-const musicPanel = document.getElementById(
-    "musicPanel"
-);
-
-const musicToggle = document.getElementById(
-    "musicToggle"
-);
-
-const youtubePlayer = document.getElementById(
-    "youtubePlayer"
-);
 
 
 /* ==========================================
@@ -87,7 +75,113 @@ function nextScreen(number) {
     });
 
 }
+/* ==========================================
+   BACKGROUND MUSIC
+========================================== */
 
+const backgroundMusic = document.getElementById(
+    "backgroundMusic"
+);
+
+const musicToggle = document.getElementById(
+    "musicToggle"
+);
+
+const musicIcon = document.getElementById(
+    "musicIcon"
+);
+
+backgroundMusic.volume = 0.45;
+
+
+/* ==========================================
+   AGGIORNA ICONA
+========================================== */
+
+function updateMusicButton() {
+
+    const isPlaying = !backgroundMusic.paused;
+
+    musicIcon.textContent = isPlaying ? "♫" : "♪";
+
+    musicToggle.classList.toggle(
+        "playing",
+        isPlaying
+    );
+
+    musicToggle.setAttribute(
+        "aria-pressed",
+        String(isPlaying)
+    );
+
+    musicToggle.setAttribute(
+        "aria-label",
+        isPlaying
+            ? "Metti in pausa la musica"
+            : "Riprendi la musica"
+    );
+
+}
+
+
+/* ==========================================
+   START MUSIC
+========================================== */
+
+async function startMusic() {
+
+    try {
+
+        await backgroundMusic.play();
+
+    } catch (error) {
+
+        console.log(
+            "Il browser non ha consentito l'avvio dell'audio.",
+            error
+        );
+
+    }
+
+    updateMusicButton();
+
+}
+
+
+/* ==========================================
+   TOGGLE MUSIC
+========================================== */
+
+function toggleMusic() {
+
+    if (backgroundMusic.paused) {
+
+        startMusic();
+
+    } else {
+
+        backgroundMusic.pause();
+
+        updateMusicButton();
+
+    }
+
+}
+
+
+/* ==========================================
+   MUSIC EVENTS
+========================================== */
+
+backgroundMusic.addEventListener(
+    "play",
+    updateMusicButton
+);
+
+backgroundMusic.addEventListener(
+    "pause",
+    updateMusicButton
+);
 
 /* ==========================================
    PROGRESS BAR
@@ -101,7 +195,6 @@ function updateProgress() {
 
 }
 
-
 /* ==========================================
    APERTURA BUSTA
 ========================================== */
@@ -113,6 +206,12 @@ function openEnvelope() {
     }
 
     envelopeOpened = true;
+
+    // Avvia la colonna sonora al primo tocco.
+    // Il file audio resta attivo durante
+    // tutta la navigazione tra le schermate.
+
+    startMusic();
 
     const envelope = document.getElementById(
         "envelope"
@@ -128,7 +227,8 @@ function openEnvelope() {
 
     envelope.classList.add("open");
 
-    hint.textContent = "Una lettera speciale per voi ♡";
+    hint.textContent =
+        "Una lettera speciale per voi ♡";
 
     setTimeout(() => {
 
@@ -143,43 +243,6 @@ function openEnvelope() {
 
 }
 
-
-/* ==========================================
-   COLONNA SONORA YOUTUBE
-========================================== */
-
-function toggleMusicPanel() {
-
-    musicPanelOpen = !musicPanelOpen;
-
-    if (musicPanelOpen) {
-
-        musicPanel.classList.remove("hidden");
-
-        musicToggle.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-        youtubePlayer.src =
-            `https://www.youtube-nocookie.com/embed/${youtubeVideoId}?rel=0`;
-
-    } else {
-
-        musicPanel.classList.add("hidden");
-
-        musicToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        // Svuotando src interrompiamo il video.
-
-        youtubePlayer.src = "";
-
-    }
-
-}
 
 
 /* ==========================================

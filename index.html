@@ -28,55 +28,30 @@
     <div class="corner-decoration top-left">❦</div>
     <div class="corner-decoration bottom-right">❦</div>
 
+<!-- ==========================================
+     COLONNA SONORA
+========================================== -->
 
-    <!-- ==========================================
-         COLONNA SONORA
-    ========================================== -->
-
-    <button
-        id="musicToggle"
-        class="music-toggle"
-        onclick="toggleMusicPanel()"
-        aria-label="Apri la colonna sonora"
-        aria-expanded="false"
+<audio
+    id="backgroundMusic"
+    loop
+    preload="auto"
+>
+    <source
+        src="audio/soundtrack.mp3"
+        type="audio/mpeg"
     >
-        <span>♫</span>
-    </button>
+</audio>
 
-    <div id="musicPanel" class="music-panel hidden">
-
-        <div class="music-panel-header">
-
-            <span>THE SOUNDTRACK</span>
-
-            <button onclick="toggleMusicPanel()" aria-label="Chiudi">
-                ×
-            </button>
-
-        </div>
-
-        <p>
-            Per entrare nello spirito di Wisteria Lane...
-        </p>
-
-        <div class="youtube-container">
-
-            <iframe
-                id="youtubePlayer"
-                src=""
-                title="Colonna sonora della serata"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            ></iframe>
-
-        </div>
-
-        <span class="music-note">
-            Premete play e lasciatevi trasportare.
-        </span>
-
-    </div>
-
+<button
+    id="musicToggle"
+    class="music-toggle"
+    onclick="toggleMusic()"
+    aria-label="Attiva o disattiva la musica"
+    aria-pressed="false"
+>
+    <span id="musicIcon">♫</span>
+</button>
 
     <!-- ==========================================
          PROGRESS BAR
@@ -323,53 +298,28 @@
 
                 </p>
 
+<!-- ==========================================
+     WISTERIA LANE, BOLOGNA EDITION
+========================================== -->
 
-                <!-- ILLUSTRAZIONE CASA -->
+<figure class="bologna-cover">
 
-                <div class="house-illustration">
+    <div class="bologna-cover-inner">
 
-                    <div class="illustration-sky">
+        <img
+            src="/bologna.png"
+            alt="Una Wisteria Lane immaginaria nei sobborghi di Bologna, con Casa Castelmerlo"
+        >
 
-                        <div class="illustration-sun"></div>
+    </div>
 
-                        <div class="illustration-cloud cloud-a"></div>
-                        <div class="illustration-cloud cloud-b"></div>
+    <figcaption>
+        WISTERIA LANE, BOLOGNA EDITION
+        <span>❦</span>
+        CASA CASTELMERLO
+    </figcaption>
 
-                    </div>
-
-                    <div class="illustration-house">
-
-                        <div class="house-roof"></div>
-
-                        <div class="house-main">
-
-                            <div class="house-window window-left">
-                                <div class="window-divider"></div>
-                            </div>
-
-                            <div class="house-window window-right">
-                                <div class="window-divider"></div>
-                            </div>
-
-                            <div class="house-door">
-                                <div class="door-handle"></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="illustration-grass"></div>
-
-                    <div class="garden-flower flower-one">✿</div>
-                    <div class="garden-flower flower-two">✿</div>
-                    <div class="garden-flower flower-three">✿</div>
-
-                    <div class="house-plaque">
-                        CASA CASTELMERLO
-                    </div>
-
-                </div>
+</figure>
 
 
                 <!-- INFORMAZIONI -->
@@ -414,16 +364,15 @@
 
                         <p>
 
-                            Ma anche le protagoniste di
-                            Desperate Housewives
-                            vivevano nei sobborghi.
+                            Ma le serate migliori spesso si svolgono proprio nei sobborghi.
+        
 
                         </p>
 
                         <em>
 
-                            E guardate quante cose interessanti
-                            succedevano da quelle parti.
+                            Quante cose interessanti accadono lì dove 
+                            nessuno sospetta nulla...
 
                         </em>
 
@@ -520,11 +469,13 @@
 
                             <div class="portrait-inner">
 
-                                <div class="portrait-silhouette bree-portrait">
+                                <div class="portrait-photo bree-portrait">
 
-                                    <span class="portrait-illustration">
-                                        ♕
-                                    </span>
+                                    <img
+                                        src="/bree.jpg"
+                                        alt="Bree Van de Kamp"
+                                        loading="lazy"
+                                    >
 
                                 </div>
 
@@ -577,11 +528,13 @@
 
                             <div class="portrait-inner">
 
-                                <div class="portrait-silhouette susan-portrait">
+                                <div class="portrait-photo susan-portrait">
 
-                                    <span class="portrait-illustration">
-                                        ♡
-                                    </span>
+                                    <img
+                                        src="/susan.jpg"
+                                        alt="Susan Mayer"
+                                        loading="lazy"
+                                    >
 
                                 </div>
 

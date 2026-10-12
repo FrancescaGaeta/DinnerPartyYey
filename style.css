@@ -2639,3 +2639,792 @@ textarea:focus-visible {
         font-size: 21px;
     }
 }
+
+
+/* ==========================================
+   BOLOGNA COVER
+========================================== */
+
+.bologna-cover {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 28px auto;
+
+    padding: 8px;
+
+    background: #fffaf0;
+
+    border: 2px solid var(--gold);
+
+    box-shadow:
+        0 6px 18px rgba(68, 55, 46, .10);
+}
+
+.bologna-cover-inner {
+    overflow: hidden;
+
+    border: 1px solid var(--gold-light);
+}
+
+.bologna-cover img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
+
+.bologna-cover figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 12px 4px 5px;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+
+    letter-spacing: 1.3px;
+    color: var(--red);
+}
+
+.bologna-cover figcaption span {
+    color: var(--gold);
+    font-size: 18px;
+}
+
+@media (max-width: 650px) {
+
+    .bologna-cover {
+        margin: 20px auto;
+        padding: 5px;
+    }
+
+    .bologna-cover figcaption {
+        font-size: 9px;
+        letter-spacing: .5px;
+        gap: 6px;
+    }
+
+}
+
+
+
+/* ==========================================
+   BREE & SUSAN PORTRAITS
+========================================== */
+
+.portrait-photo {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #d9c5a9;
+}
+
+.portrait-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 20%;
+
+    filter:
+        sepia(.14)
+        saturate(.88)
+        contrast(.96);
+
+    transition:
+        filter .35s ease,
+        transform .35s ease;
+}
+
+.portrait-photo img:hover {
+    filter: none;
+    transform: scale(1.04);
+}
+
+
+
+
+/* ==========================================================
+   CASA CASTELMERLO
+   MOBILE REDESIGN
+   ========================================================== */
+
+@media (max-width: 650px) {
+
+    /* ==========================================
+       GENERAL
+    ========================================== */
+
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    /* ==========================================
+       SCREENS
+    ========================================== */
+
+    .screen {
+        min-height: 100svh;
+
+        padding: 55px 13px 32px;
+    }
+
+    .screen.active {
+        align-items: flex-start;
+    }
+
+    .screen-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* ==========================================
+       ORNATE FRAMES
+    ========================================== */
+
+    .ornate-frame {
+        padding: 38px 21px 34px;
+
+        border-width: 1px;
+
+        outline-offset: 3px;
+
+        box-shadow:
+            0 6px 20px rgba(70, 45, 30, .07);
+    }
+
+    .ornate-frame::before {
+        inset: 7px;
+    }
+
+    .frame-corner {
+        font-size: 25px;
+    }
+
+    .corner-tl {
+        top: 5px;
+        left: 7px;
+    }
+
+    .corner-tr {
+        top: 5px;
+        right: 7px;
+    }
+
+    .corner-bl {
+        bottom: 5px;
+        left: 7px;
+    }
+
+    .corner-br {
+        bottom: 5px;
+        right: 7px;
+    }
+
+    /* ==========================================
+       DECORATIONS
+    ========================================== */
+
+    .ornament {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .small-ornament {
+        font-size: 20px;
+    }
+
+    .decorative-divider {
+        margin: 17px auto;
+        gap: 9px;
+    }
+
+    .decorative-divider::before,
+    .decorative-divider::after {
+        width: 42px;
+    }
+
+    /* ==========================================
+       EPISODE HEADING
+    ========================================== */
+
+    .episode-heading {
+        margin-bottom: 16px;
+    }
+
+    .episode-number {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    /* ==========================================
+       TITLES
+    ========================================== */
+
+    .main-title {
+        font-size: clamp(49px, 13vw, 67px);
+
+        line-height: .88;
+
+        margin: 8px 0 12px;
+
+        letter-spacing: -1px;
+    }
+
+    .section-title {
+        font-size: clamp(37px, 10vw, 49px);
+
+        line-height: 1;
+
+        margin: 12px 0 18px;
+    }
+
+    .production-label {
+        font-size: 8px;
+        letter-spacing: 1.8px;
+    }
+
+    .series-subtitle {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+        margin-top: 15px;
+    }
+
+    .small-label {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    /* ==========================================
+       OPENING
+    ========================================== */
+
+    .apple-symbol {
+        font-size: 42px;
+        margin: 12px 0;
+    }
+
+    .narrator-text {
+        font-size: 19px;
+        line-height: 1.28;
+
+        margin: 12px auto;
+
+        max-width: 310px;
+    }
+
+    .narrator-text.italic {
+        margin-top: 15px;
+    }
+
+    /* ==========================================
+       ENVELOPE
+    ========================================== */
+
+    .envelope-section {
+        margin-top: 35px;
+    }
+
+    .envelope-label {
+        font-size: 9px;
+        margin-bottom: 18px;
+    }
+
+    .envelope-hint {
+        margin-top: 22px;
+
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .envelope-hint em {
+        font-size: 16px;
+    }
+
+    /* ==========================================
+       LETTER
+    ========================================== */
+
+    .letter-content {
+        margin-top: 55px;
+        padding: 26px 19px;
+    }
+
+    .letter-ornament {
+        font-size: 24px;
+    }
+
+    .letter-content h2 {
+        font-size: 53px;
+        line-height: 1;
+
+        margin: 17px 0 12px;
+    }
+
+    .greeting-flourish {
+        font-size: 20px;
+        margin: 0 0 13px;
+    }
+
+    .letter-content p {
+        font-size: 19px;
+        line-height: 1.3;
+
+        margin: 12px 0;
+    }
+
+    .letter-signature {
+        margin: 20px 0 !important;
+    }
+
+    /* ==========================================
+       SECTION INTRO
+    ========================================== */
+
+    .section-intro {
+        font-size: 20px;
+        line-height: 1.25;
+
+        margin: 0 auto 20px;
+    }
+
+    /* ==========================================
+       BOLOGNA IMAGE
+    ========================================== */
+
+    .bologna-cover {
+        margin: 20px auto;
+    }
+
+    /* ==========================================
+       INVITATION DETAILS
+    ========================================== */
+
+    .invitation-details {
+        padding: 17px 4px;
+    }
+
+    .detail-ornament {
+        font-size: 23px;
+    }
+
+    .invitation-details h3 {
+        font-size: 37px;
+        line-height: 1.05;
+
+        margin: 12px 0 4px;
+    }
+
+    .invitation-time {
+        font-size: 25px;
+        margin: 7px 0;
+    }
+
+    .invitation-address {
+        font-size: 13px;
+        margin: 12px 0;
+    }
+
+    .suburbs-note {
+        margin-top: 25px;
+        padding: 22px 17px;
+    }
+
+    .suburbs-note > span {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .suburbs-note p {
+        font-size: 19px;
+        line-height: 1.25;
+
+        margin: 12px 0;
+    }
+
+    .suburbs-note em {
+        font-size: 19px;
+        line-height: 1.25;
+    }
+
+    /* ==========================================
+       BREE VS SUSAN
+    ========================================== */
+
+    .portrait-gallery {
+        flex-direction: row;
+        align-items: flex-start;
+
+        gap: 10px;
+
+        margin: 30px 0 22px;
+    }
+
+    .portrait-block {
+        flex: 1;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .portrait-frame {
+        padding: 5px;
+        border-width: 2px;
+    }
+
+    .portrait-inner {
+        height: clamp(125px, 42vw, 190px);
+        border-width: 3px;
+    }
+
+    .portrait-nameplate {
+        padding: 9px 3px;
+        margin-top: 11px;
+    }
+
+    .portrait-nameplate span {
+        font-size: 7px;
+        letter-spacing: .7px;
+    }
+
+    .portrait-nameplate h3 {
+        font-size: 19px;
+        line-height: 1;
+
+        margin: 7px 0 2px;
+    }
+
+    .portrait-description {
+        font-size: 16px;
+        line-height: 1.2;
+
+        margin: 10px 0;
+    }
+
+    .portrait-separator {
+        flex-direction: column;
+
+        gap: 5px;
+        padding-top: 65px;
+
+        font-size: 11px;
+    }
+
+    .portrait-separator em {
+        font-size: 17px;
+    }
+
+    /* ==========================================
+       CONFESSION
+    ========================================== */
+
+    .confession-card {
+        margin: 25px auto;
+        padding: 23px 16px;
+    }
+
+    .confession-ornament {
+        font-size: 24px;
+    }
+
+    .confession-card p {
+        font-size: 20px;
+        line-height: 1.25;
+
+        margin: 11px 0;
+    }
+
+    .confession-card strong {
+        font-size: 21px;
+        line-height: 1.25;
+
+        margin-top: 15px;
+    }
+
+    /* ==========================================
+       MENU
+    ========================================== */
+
+    .secret-menu {
+        margin: 30px auto 15px;
+        padding: 27px 15px;
+    }
+
+    .menu-top-decoration {
+        font-size: 25px;
+    }
+
+    .secret-menu h3 {
+        font-size: 39px;
+        line-height: 1;
+
+        margin: 15px 0;
+    }
+
+    .secret-menu > p {
+        font-size: 19px;
+        line-height: 1.25;
+
+        margin: 13px 0;
+    }
+
+    .menu-divider {
+        margin: 13px 0;
+    }
+
+    .ingredients {
+        gap: 7px;
+        margin: 20px 0;
+    }
+
+    .ingredient {
+        padding: 13px 5px;
+        gap: 7px;
+    }
+
+    .ingredient-icon {
+        font-size: 27px;
+    }
+
+    .ingredient span:last-child {
+        font-size: 8px;
+    }
+
+    .clue-text {
+        min-height: 40px;
+        font-size: 19px;
+        line-height: 1.25;
+    }
+
+    /* ==========================================
+       FOOD DOSSIERS
+    ========================================== */
+
+    .food-intro {
+        font-size: 20px;
+        line-height: 1.25;
+
+        margin-bottom: 22px;
+    }
+
+    .guest-dossier {
+        margin: 17px auto;
+        padding: 20px 17px;
+    }
+
+    .guest-dossier h3 {
+        font-size: 38px;
+        margin: 8px 0;
+    }
+
+    .guest-dossier p {
+        font-size: 19px;
+        line-height: 1.25;
+
+        margin: 9px 0 13px;
+    }
+
+    .guest-dossier textarea {
+        min-height: 85px;
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    /* ==========================================
+       DESSERT
+    ========================================== */
+
+    .dessert-card {
+        margin: 25px auto;
+        padding: 28px 19px;
+    }
+
+    .dessert-ornament {
+        font-size: 25px;
+    }
+
+    .dessert-card h3 {
+        font-size: 38px;
+        margin: 13px 0;
+    }
+
+    .dessert-divider {
+        margin: 10px 0;
+    }
+
+    .dessert-card p {
+        font-size: 19px;
+        line-height: 1.25;
+
+        margin: 11px 0;
+    }
+
+    .dessert-card textarea {
+        min-height: 90px;
+        padding: 13px;
+        margin: 18px auto 12px;
+    }
+
+    .dessert-footer {
+        margin-top: 15px;
+    }
+
+    .allergy-note {
+        margin: 22px auto;
+        line-height: 1.4;
+    }
+
+    /* ==========================================
+       FINAL SCREEN
+    ========================================== */
+
+    .final-apple {
+        font-size: 46px;
+        margin: 10px 0;
+    }
+
+    .final-text {
+        font-size: 20px;
+        line-height: 1.28;
+
+        margin: 13px auto;
+    }
+
+    .final-special {
+        font-size: 23px;
+    }
+
+    .rsvp-card {
+        margin-top: 30px;
+        padding: 26px 17px;
+    }
+
+    .rsvp-ornament {
+        font-size: 24px;
+    }
+
+    .rsvp-card h3 {
+        font-size: 34px;
+        margin: 12px 0;
+    }
+
+    .rsvp-card p {
+        font-size: 20px;
+        margin: 12px 0 20px;
+    }
+
+    .rsvp-buttons {
+        gap: 10px;
+    }
+
+    /* ==========================================
+       BUTTONS
+    ========================================== */
+
+    .primary-btn,
+    .secondary-btn {
+        min-height: 45px;
+
+        padding: 13px 22px;
+
+        font-size: 12px;
+    }
+
+    .back-btn {
+        margin-top: 16px;
+        padding: 8px;
+    }
+
+    /* ==========================================
+       FOOTER
+    ========================================== */
+
+    footer {
+        margin-top: 35px;
+        padding-top: 20px;
+    }
+
+    footer h3 {
+        font-size: 29px;
+        margin: 8px 0;
+    }
+
+    footer p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    /* ==========================================
+       POPUP
+    ========================================== */
+
+    .confirmation-popup {
+        padding: 32px 23px;
+    }
+
+    .confirmation-popup h2 {
+        font-size: 37px;
+    }
+
+    .confirmation-popup p {
+        font-size: 19px;
+        line-height: 1.3;
+    }
+
+}
+
+/* ==========================================
+   MUSIC BUTTON
+========================================== */
+
+.music-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--paper);
+
+    border: 1px solid var(--gold);
+
+    color: var(--red);
+}
+
+.music-toggle.playing {
+    background: var(--red);
+    color: white;
+
+    box-shadow:
+        0 0 0 4px rgba(166, 61, 64, .10),
+        0 5px 20px rgba(0, 0, 0, .10);
+}
+
+.music-toggle.playing span {
+    animation: musicPulse 2s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
