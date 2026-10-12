@@ -707,46 +707,31 @@
                         Cliccate per scoprire gli indizi...
                     </div>
 
+<!-- ==========================================
+     THE CHEF'S LITTLE SECRET
+========================================== -->
 
-                    <!-- MEME -->
+<div class="meme-secret">
 
-                    <div
-                        id="memeReveal"
-                        class="meme-reveal hidden"
-                    >
+    <button
+        type="button"
+        class="meme-secret-btn"
+        onclick="openMeme()"
+    >
+        <span class="meme-secret-icon">✦</span>
 
-                        <div class="meme-heading">
+        <span class="meme-secret-text">
+            Psst... lo chef ha qualcosa da nascondere.
+        </span>
 
-                            <span>
-                                A LITTLE PREVIEW
-                            </span>
+        <span class="meme-secret-arrow">↗</span>
+    </button>
 
-                            <h4>
-                                Qualcuno su Instagram
-                                ha già detto tutto.
-                            </h4>
+    <p class="meme-secret-hint">
+        Un piccolo spoiler. A vostro rischio e pericolo.
+    </p>
 
-                        </div>
-
-                        <div class="meme-polaroid">
-
-                            <img
-                                src="img/pasta-patate-meme.jpg"
-                                alt="Meme sulla specialità dello chef"
-                                onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"
-                            >
-
-                            <p class="meme-placeholder" hidden>
-                                Qui comparirà il meme.
-                            </p>
-
-                            <span>
-                                No pressure, chef.
-                            </span>
-
-                        </div>
-
-                    </div>
+</div>
 
                 </div>
 
@@ -1211,6 +1196,72 @@
 
     </div>
 
+    <!-- ==========================================
+     MEME VIDEO POPUP
+========================================== -->
+
+<div
+    id="memeOverlay"
+    class="meme-overlay hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Il segreto dello chef"
+>
+
+    <div class="meme-popup">
+
+        <button
+            type="button"
+            class="meme-close"
+            onclick="closeMeme()"
+            aria-label="Chiudi il video"
+        >
+            ×
+        </button>
+
+        <div class="meme-popup-decoration">❦</div>
+
+        <span class="small-label">
+            TOP SECRET — CASA CASTELMERLO
+        </span>
+
+        <h3>
+            The Chef's
+            <em>Little Secret</em>
+        </h3>
+
+        <p>
+            Ogni casalinga disperata ha i suoi segreti.
+            <br>
+            Questo è il nostro.
+        </p>
+
+        <div class="meme-video-frame">
+
+            <video
+                id="memeVideo"
+                controls
+                playsinline
+                preload="metadata"
+            >
+                <source
+                    src="audio/video.mp4"
+                    type="video/mp4"
+                >
+
+                Il tuo browser non supporta questo video.
+            </video>
+
+        </div>
+
+        <span class="meme-popup-footer">
+            WHAT HAPPENS IN THE KITCHEN,
+            STAYS IN THE KITCHEN.
+        </span>
+
+    </div>
+
+</div>
 
     <script src="script.js"></script>
 

@@ -500,3 +500,99 @@ document.addEventListener(
 ========================================== */
 
 updateProgress();
+
+
+
+/* ==========================================================
+   THE CHEF'S LITTLE SECRET
+   ========================================================== */
+
+const memeOverlay = document.getElementById("memeOverlay");
+const memeVideo = document.getElementById("memeVideo");
+
+let resumeBackgroundMusic = false;
+
+
+/* ==========================================
+   APRI MEME
+========================================== */
+
+function openMeme() {
+
+    // Ricorda se la musica era attiva.
+    resumeBackgroundMusic = !backgroundMusic.paused;
+
+    // Evita che musica e video si sovrappongano.
+    if (resumeBackgroundMusic) {
+        backgroundMusic.pause();
+    }
+
+    // Mostra il popup.
+    memeOverlay.classList.remove("hidden");
+
+    document.body.style.overflow = "hidden";
+
+    // Avvia il video.
+    memeVideo.currentTime = 0;
+
+    memeVideo.play().catch(() => {
+        // Se il browser blocca la riproduzione,
+        // l'utente può premere Play.
+    });
+
+}
+
+
+/* ==========================================
+   CHIUDI MEME
+========================================== */
+
+function closeMeme() {
+
+    // Ferma il video.
+    memeVideo.pause();
+    memeVideo.currentTime = 0;
+
+    // Nascondi il popup.
+    memeOverlay.classList.add("hidden");
+
+    document.body.style.overflow = "";
+
+    // Riprendi la colonna sonora soltanto
+    // se era già attiva.
+    if (resumeBackgroundMusic) {
+        startMusic();
+    }
+
+    resumeBackgroundMusic = false;
+
+}
+
+
+/* ==========================================
+   CHIUSURA CLICCANDO FUORI
+========================================== */
+
+memeOverlay.addEventListener("click", function(event) {
+
+    if (event.target === memeOverlay) {
+        closeMeme();
+    }
+
+});
+
+
+/* ==========================================
+   CHIUSURA CON ESC
+========================================== */
+
+document.addEventListener("keydown", function(event) {
+
+    if (
+        event.key === "Escape" &&
+        !memeOverlay.classList.contains("hidden")
+    ) {
+        closeMeme();
+    }
+
+});
