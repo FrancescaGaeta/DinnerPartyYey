@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Casa Castelmerlo | A Dinner Invitation</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         DECORAZIONI GLOBALI
+    ========================================== -->
+
+    <div class="page-texture"></div>
+
+    <div class="corner-decoration top-left">❦</div>
+    <div class="corner-decoration bottom-right">❦</div>
+
+
+    <!-- ==========================================
+         COLONNA SONORA
+    ========================================== -->
+
+    <button
+        id="musicToggle"
+        class="music-toggle"
+        onclick="toggleMusicPanel()"
+        aria-label="Apri la colonna sonora"
+        aria-expanded="false"
+    >
+        <span>♫</span>
+    </button>
+
+    <div id="musicPanel" class="music-panel hidden">
+
+        <div class="music-panel-header">
+
+            <span>THE SOUNDTRACK</span>
+
+            <button onclick="toggleMusicPanel()" aria-label="Chiudi">
+                ×
+            </button>
+
+        </div>
+
+        <p>
+            Per entrare nello spirito di Wisteria Lane...
+        </p>
+
+        <div class="youtube-container">
+
+            <iframe
+                id="youtubePlayer"
+                src=""
+                title="Colonna sonora della serata"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+
+        </div>
+
+        <span class="music-note">
+            Premete play e lasciatevi trasportare.
+        </span>
+
+    </div>
+
+
+    <!-- ==========================================
+         PROGRESS BAR
+    ========================================== -->
+
+    <div class="progress-container">
+
+        <div id="progressBar" class="progress-bar"></div>
+
+    </div>
+
+
+    <!-- ==========================================
+         EPISODIO 01
+         LA LETTERA
+    ========================================== -->
+
+    <main id="screen1" class="screen active">
+
+        <div class="screen-content">
+
+            <div class="ornate-frame opening-frame">
+
+                <div class="frame-corner corner-tl">❧</div>
+                <div class="frame-corner corner-tr">❧</div>
+                <div class="frame-corner corner-bl">❧</div>
+                <div class="frame-corner corner-br">❧</div>
+
+                <div class="ornament">❦</div>
+
+                <p class="production-label">
+                    A CASA CASTELMERLO PRODUCTION
+                </p>
+
+                <div class="apple-symbol">🍎</div>
+
+                <h1 class="main-title">
+
+                    Desperate
+                    <br>
+
+                    <em>Housewives</em>
+
+                </h1>
+
+                <p class="series-subtitle">
+                    THE SUBURBAN DINNER EDITION
+                </p>
+
+                <div class="decorative-divider">
+                    <span>✦</span>
+                </div>
+
+                <p class="narrator-text">
+
+                    Nei tranquilli sobborghi bolognesi,
+                    tre aspiranti Bree Van de Kamp
+                    stavano organizzando una cena.
+
+                </p>
+
+                <p class="narrator-text">
+
+                    Avevano grandi progetti,
+                    una ricetta della tradizione
+                    e una fiducia forse eccessiva
+                    nelle proprie capacità organizzative.
+
+                </p>
+
+                <p class="narrator-text italic">
+
+                    Ma soprattutto, avevano due invitati
+                    che non vedevano l'ora
+                    di accogliere.
+
+                </p>
+
+
+                <!-- BUSTA -->
+
+                <div class="envelope-section">
+
+                    <p class="envelope-label">
+                        SPECIAL DELIVERY
+                    </p>
+
+                    <div
+                        id="envelope"
+                        class="envelope"
+                        role="button"
+                        tabindex="0"
+                        aria-label="Apri l'invito"
+                        onclick="openEnvelope()"
+                        onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openEnvelope(); }"
+                    >
+
+                        <div class="envelope-back"></div>
+
+                        <div class="envelope-letter">
+
+                            <span>CASA CASTELMERLO</span>
+
+                            <strong>
+                                Andre & Enrico
+                            </strong>
+
+                            <small>
+                                PRIVATE INVITATION
+                            </small>
+
+                        </div>
+
+                        <div class="envelope-front"></div>
+
+                        <div class="envelope-flap"></div>
+
+                        <div class="wax-seal">
+                            C
+                        </div>
+
+                    </div>
+
+                    <p id="envelopeHint" class="envelope-hint">
+                        Una lettera vi aspetta.
+                        <br>
+                        <em>Cliccate sul sigillo per aprirla.</em>
+                    </p>
+
+                </div>
+
+
+                <!-- LETTERA -->
+
+                <div id="letterContent" class="letter-content hidden">
+
+                    <div class="letter-ornament">
+                        ❦
+                    </div>
+
+                    <span class="small-label">
+                        CORRISPONDENZA PRIVATA
+                    </span>
+
+                    <h2 class="letter-greeting">
+                        Cari Andre & Enrico,
+                    </h2>
+
+                    <div class="greeting-flourish">❦</div>
+
+                    <p>
+
+                        Le porte di Casa Castelmerlo
+                        stanno per aprirsi per una serata
+                        di buon cibo, chiacchiere
+                        e discutibili capacità culinarie.
+
+                    </p>
+
+                    <p>
+
+                        Ci farebbe davvero piacere
+                        avervi a cena con noi.
+
+                    </p>
+
+                    <p>
+
+                        Abbiamo preparato questo piccolo invito
+                        per darvi tutte le informazioni
+                        necessarie.
+
+                    </p>
+
+                    <p class="letter-signature">
+
+                        Con affetto,
+                        <br>
+
+                        Le vostre tre disperate
+                        padrone di casa ♡
+
+                    </p>
+
+                    <button
+                        class="primary-btn"
+                        onclick="nextScreen(2)"
+                    >
+                        Scopri l'invito →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==========================================
+         EPISODIO 02
+         CASA CASTELMERLO
+    ========================================== -->
+
+    <section id="screen2" class="screen">
+
+        <div class="screen-content">
+
+            <div class="episode-heading">
+
+                <span class="episode-number">
+                    EPISODIO II
+                </span>
+
+                <div class="small-ornament">❦</div>
+
+            </div>
+
+
+            <div class="ornate-frame">
+
+                <div class="frame-corner corner-tl">❧</div>
+                <div class="frame-corner corner-tr">❧</div>
+                <div class="frame-corner corner-bl">❧</div>
+                <div class="frame-corner corner-br">❧</div>
+
+
+                <h2 class="section-title">
+
+                    Welcome to
+                    <br>
+
+                    <em>Casa Castelmerlo</em>
+
+                </h2>
+
+                <p class="section-intro">
+
+                    Ogni quartiere ha la sua Wisteria Lane.
+                    <br>
+
+                    Noi abbiamo i sobborghi bolognesi.
+
+                </p>
+
+
+                <!-- ILLUSTRAZIONE CASA -->
+
+                <div class="house-illustration">
+
+                    <div class="illustration-sky">
+
+                        <div class="illustration-sun"></div>
+
+                        <div class="illustration-cloud cloud-a"></div>
+                        <div class="illustration-cloud cloud-b"></div>
+
+                    </div>
+
+                    <div class="illustration-house">
+
+                        <div class="house-roof"></div>
+
+                        <div class="house-main">
+
+                            <div class="house-window window-left">
+                                <div class="window-divider"></div>
+                            </div>
+
+                            <div class="house-window window-right">
+                                <div class="window-divider"></div>
+                            </div>
+
+                            <div class="house-door">
+                                <div class="door-handle"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="illustration-grass"></div>
+
+                    <div class="garden-flower flower-one">✿</div>
+                    <div class="garden-flower flower-two">✿</div>
+                    <div class="garden-flower flower-three">✿</div>
+
+                    <div class="house-plaque">
+                        CASA CASTELMERLO
+                    </div>
+
+                </div>
+
+
+                <!-- INFORMAZIONI -->
+
+                <div class="invitation-details">
+
+                    <div class="detail-ornament">
+                        ✦
+                    </div>
+
+                    <span class="small-label">
+                        YOU ARE CORDIALLY INVITED
+                    </span>
+
+                    <h3>
+                        Martedì 13 ottobre
+                    </h3>
+
+                    <p class="invitation-time">
+                        Ore 20:30
+                    </p>
+
+                    <div class="decorative-divider">
+                        <span>❦</span>
+                    </div>
+
+                    <p class="invitation-address">
+                        Via XXX, Bologna
+                    </p>
+
+                    <div class="suburbs-note">
+
+                        <span>
+                            A NOTE FROM THE SUBURBS
+                        </span>
+
+                        <p>
+
+                            Sì, sappiamo che abitiamo in culonia.
+
+                        </p>
+
+                        <p>
+
+                            Ma anche le protagoniste di
+                            Desperate Housewives
+                            vivevano nei sobborghi.
+
+                        </p>
+
+                        <em>
+
+                            E guardate quante cose interessanti
+                            succedevano da quelle parti.
+
+                        </em>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="nextScreen(3)"
+                >
+                    Entriamo in cucina →
+                </button>
+
+                <button
+                    class="back-btn"
+                    onclick="nextScreen(1)"
+                >
+                    ← Torna indietro
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         EPISODIO 03
+         BREE VS SUSAN
+    ========================================== -->
+
+    <section id="screen3" class="screen">
+
+        <div class="screen-content">
+
+            <div class="episode-heading">
+
+                <span class="episode-number">
+                    EPISODIO III
+                </span>
+
+                <div class="small-ornament">❦</div>
+
+            </div>
+
+
+            <div class="ornate-frame">
+
+                <div class="frame-corner corner-tl">❧</div>
+                <div class="frame-corner corner-tr">❧</div>
+                <div class="frame-corner corner-bl">❧</div>
+                <div class="frame-corner corner-br">❧</div>
+
+
+                <h2 class="section-title">
+
+                    The Art of
+                    <br>
+
+                    <em>Entertaining</em>
+
+                </h2>
+
+                <p class="section-intro">
+
+                    Organizzare la cena perfetta
+                    è un'arte.
+
+                    <br>
+
+                    Alcune donne nascono
+                    con questo talento.
+
+                    <br>
+
+                    Altre... fanno del loro meglio.
+
+                </p>
+
+
+                <!-- RITRATTI -->
+
+                <div class="portrait-gallery">
+
+
+                    <!-- BREE -->
+
+                    <div class="portrait-block">
+
+                        <div class="portrait-frame">
+
+                            <div class="portrait-inner">
+
+                                <div class="portrait-silhouette bree-portrait">
+
+                                    <span class="portrait-illustration">
+                                        ♕
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="portrait-nameplate">
+
+                            <span>
+                                THE ASPIRATION
+                            </span>
+
+                            <h3>
+                                Bree Van de Kamp
+                            </h3>
+
+                        </div>
+
+                        <p class="portrait-description">
+
+                            La tavola perfetta.
+                            I tovaglioli stirati.
+                            La cena pronta in orario.
+                            Nemmeno un capello fuori posto.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- DECORAZIONE CENTRALE -->
+
+                    <div class="portrait-separator">
+
+                        <span>✦</span>
+
+                        <em>versus</em>
+
+                        <span>✦</span>
+
+                    </div>
+
+
+                    <!-- SUSAN -->
+
+                    <div class="portrait-block">
+
+                        <div class="portrait-frame">
+
+                            <div class="portrait-inner">
+
+                                <div class="portrait-silhouette susan-portrait">
+
+                                    <span class="portrait-illustration">
+                                        ♡
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="portrait-nameplate">
+
+                            <span>
+                                THE REALITY
+                            </span>
+
+                            <h3>
+                                Susan Mayer
+                            </h3>
+
+                        </div>
+
+                        <p class="portrait-description">
+
+                            Le migliori intenzioni.
+                            Un grembiule.
+                            Una ricetta da seguire.
+                            E qualche piccolo imprevisto.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFESSIONE -->
+
+                <div class="confession-card">
+
+                    <div class="confession-ornament">
+                        ❦
+                    </div>
+
+                    <p>
+
+                        Vorremmo essere delle Bree
+                        e organizzare la cena perfetta.
+
+                    </p>
+
+                    <p>
+
+                        Purtroppo, siamo decisamente
+                        più delle Susan.
+
+                    </p>
+
+                    <strong>
+
+                        Ma possiamo assicurarvi
+                        che ce la metteremo tutta.
+
+                    </strong>
+
+                </div>
+
+
+                <!-- MENU -->
+
+                <div class="secret-menu">
+
+                    <div class="menu-top-decoration">
+                        ❦
+                    </div>
+
+                    <span class="small-label">
+                        FROM OUR KITCHEN
+                    </span>
+
+                    <h3>
+
+                        Il piatto forte
+                        <br>
+
+                        <em>dello chef</em>
+
+                    </h3>
+
+                    <p>
+
+                        Una specialità della tradizione
+                        napoletana.
+
+                        <br>
+
+                        Pochi ingredienti,
+                        molto amore e una quantità
+                        piuttosto generosa di carboidrati.
+
+                    </p>
+
+                    <div class="menu-divider">
+                        ✦
+                    </div>
+
+                    <p class="clue-instruction">
+
+                        Il menù rimane una sorpresa.
+                        Ma possiamo concedervi
+                        qualche piccolo indizio.
+
+                    </p>
+
+
+                    <!-- INDIZI -->
+
+                    <div class="ingredients">
+
+                        <button
+                            class="ingredient"
+                            onclick="revealClue(1)"
+                        >
+
+                            <span class="ingredient-icon">
+                                🥔
+                            </span>
+
+                            <span>
+                                INDIZIO I
+                            </span>
+
+                        </button>
+
+                        <button
+                            class="ingredient"
+                            onclick="revealClue(2)"
+                        >
+
+                            <span class="ingredient-icon">
+                                🍝
+                            </span>
+
+                            <span>
+                                INDIZIO II
+                            </span>
+
+                        </button>
+
+                        <button
+                            class="ingredient"
+                            onclick="revealClue(3)"
+                        >
+
+                            <span class="ingredient-icon">
+                                🧀
+                            </span>
+
+                            <span>
+                                INDIZIO III
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="clueText"
+                        class="clue-text"
+                        aria-live="polite"
+                    >
+                        Cliccate per scoprire gli indizi...
+                    </div>
+
+
+                    <!-- MEME -->
+
+                    <div
+                        id="memeReveal"
+                        class="meme-reveal hidden"
+                    >
+
+                        <div class="meme-heading">
+
+                            <span>
+                                A LITTLE PREVIEW
+                            </span>
+
+                            <h4>
+                                Qualcuno su Instagram
+                                ha già detto tutto.
+                            </h4>
+
+                        </div>
+
+                        <div class="meme-polaroid">
+
+                            <img
+                                src="img/pasta-patate-meme.jpg"
+                                alt="Meme sulla specialità dello chef"
+                                onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"
+                            >
+
+                            <p class="meme-placeholder" hidden>
+                                Qui comparirà il meme.
+                            </p>
+
+                            <span>
+                                No pressure, chef.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="nextScreen(4)"
+                >
+                    Proseguiamo →
+                </button>
+
+                <button
+                    class="back-btn"
+                    onclick="nextScreen(2)"
+                >
+                    ← Torna indietro
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         EPISODIO 04
+         I SEGRETI DEGLI OSPITI
+    ========================================== -->
+
+    <section id="screen4" class="screen">
+
+        <div class="screen-content">
+
+            <div class="episode-heading">
+
+                <span class="episode-number">
+                    EPISODIO IV
+                </span>
+
+                <div class="small-ornament">❦</div>
+
+            </div>
+
+
+            <div class="ornate-frame">
+
+                <div class="frame-corner corner-tl">❧</div>
+                <div class="frame-corner corner-tr">❧</div>
+                <div class="frame-corner corner-bl">❧</div>
+                <div class="frame-corner corner-br">❧</div>
+
+
+                <h2 class="section-title">
+
+                    Everybody Has
+                    <br>
+
+                    <em>Something to Hide</em>
+
+                </h2>
+
+                <p class="section-intro">
+
+                    C'è chi nasconde un passato scandaloso.
+                    Chi un amante.
+
+                    <br>
+
+                    E chi semplicemente
+                    non sopporta il basilico.
+
+                </p>
+
+                <div class="decorative-divider">
+                    <span>❦</span>
+                </div>
+
+                <p class="food-intro">
+
+                    Prima di metterci ai fornelli,
+                    raccontateci quali ingredienti
+                    preferireste non trovare
+                    nel vostro piatto.
+
+                </p>
+
+
+                <!-- ANDRE -->
+
+                <div class="guest-dossier">
+
+                    <div class="dossier-header">
+
+                        <span>
+                            PRIVATE FILE Nº 001
+                        </span>
+
+                        <span>
+                            ❦
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Andre
+                    </h3>
+
+                    <p>
+                        Hai qualche segreto culinario
+                        da confessare?
+                    </p>
+
+                    <textarea
+                        id="andreFood"
+                        placeholder="Ingredienti sgraditi, preferenze, allergie..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- ENRICO -->
+
+                <div class="guest-dossier">
+
+                    <div class="dossier-header">
+
+                        <span>
+                            PRIVATE FILE Nº 002
+                        </span>
+
+                        <span>
+                            ❦
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Enrico
+                    </h3>
+
+                    <p>
+                        C'è qualcosa che proprio
+                        non vuoi mangiare?
+                    </p>
+
+                    <textarea
+                        id="enricoFood"
+                        placeholder="Nessuno ti giudicherà. Promesso."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- ==========================================
+     DESSERT CONFESSIONS
+========================================== -->
+
+<div class="dessert-card">
+
+    <div class="dessert-ornament">
+        ❦
+    </div>
+
+    <span class="small-label">
+        A LITTLE SOMETHING SWEET
+    </span>
+
+    <h3>
+        The Sweetest
+        <br>
+        <em>Confession</em>
+    </h3>
+
+    <div class="dessert-divider">
+        ✦
+    </div>
+
+    <p class="dessert-intro">
+        Sappiamo che non siete esattamente
+        degli amanti dei dolci.
+    </p>
+
+    <p>
+        Ma ci piace pensare che da qualche parte
+        esista un dessert capace di conquistarvi.
+    </p>
+
+    <p class="dessert-question">
+        C'è qualcosa che mangereste volentieri?
+    </p>
+
+    <textarea
+        id="dessertPreference"
+        placeholder="Un tiramisù? Una crostata? Oppure nessun dolce, grazie..."
+    ></textarea>
+
+    <span class="dessert-footer">
+        NO JUDGEMENT. JUST DESSERT.
+    </span>
+
+</div>
+
+                <p class="allergy-note">
+
+                    Le allergie e le intolleranze,
+                    invece, non devono rimanere segrete.
+                    Segnalatele sempre! ♡
+
+                </p>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="nextScreen(5)"
+                >
+                    Sigilla i dossier →
+                </button>
+
+                <button
+                    class="back-btn"
+                    onclick="nextScreen(3)"
+                >
+                    ← Torna indietro
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         EPISODIO 05
+         CONFERMA
+    ========================================== -->
+
+    <section id="screen5" class="screen">
+
+        <div class="screen-content">
+
+            <div class="episode-heading">
+
+                <span class="episode-number">
+                    THE SEASON FINALE
+                </span>
+
+                <div class="small-ornament">❦</div>
+
+            </div>
+
+
+            <div class="ornate-frame final-frame">
+
+                <div class="frame-corner corner-tl">❧</div>
+                <div class="frame-corner corner-tr">❧</div>
+                <div class="frame-corner corner-bl">❧</div>
+                <div class="frame-corner corner-br">❧</div>
+
+
+                <div class="final-apple">
+                    🍎
+                </div>
+
+                <h2 class="section-title">
+
+                    So, Are You
+                    <br>
+
+                    <em>Coming to Dinner?</em>
+
+                </h2>
+
+                <div class="decorative-divider">
+                    <span>✦</span>
+                </div>
+
+                <p class="final-text">
+
+                    Cari Andre ed Enrico,
+
+                </p>
+
+                <p class="final-text">
+
+                    Abbiamo due posti a tavola,
+                    una ricetta in mente
+                    e una gran voglia di trascorrere
+                    una bella serata insieme.
+
+                </p>
+
+                <p class="final-text">
+
+                    Non possiamo promettervi
+                    una cena impeccabile.
+
+                    <br>
+
+                    Ma possiamo promettervi
+                    che sarà preparata con affetto.
+
+                </p>
+
+                <p class="final-text final-special">
+
+                    E che non vediamo l'ora
+                    di avervi qui con noi. ♡
+
+                </p>
+
+
+                <!-- RSVP -->
+
+                <div class="rsvp-card">
+
+                    <div class="rsvp-ornament">
+                        ❦
+                    </div>
+
+                    <span class="small-label">
+                        RÉPONDEZ S'IL VOUS PLAÎT
+                    </span>
+
+                    <h3>
+                        Il tavolo vi aspetta.
+                    </h3>
+
+                    <p>
+                        Dobbiamo mettere su l'acqua?
+                    </p>
+
+                    <div class="rsvp-buttons">
+
+                        <button
+                            class="primary-btn"
+                            onclick="confirmAttendance()"
+                        >
+                            Ci saremo! ♡
+                        </button>
+
+                        <button
+                            class="secondary-btn"
+                            onclick="declineAttendance()"
+                        >
+                            Meglio rimandare :(
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <footer>
+
+                    <div class="footer-ornament">
+                        ❦
+                    </div>
+
+                    <h3>
+                        Casa Castelmerlo
+                    </h3>
+
+                    <p>
+                        WHERE THE SUBURBS ARE QUIET
+                        <br>
+                        BUT THE DINNERS AREN'T.
+                    </p>
+
+                    <span>
+                        EST. 2026
+                    </span>
+
+                </footer>
+
+
+                <button
+                    class="back-btn"
+                    onclick="nextScreen(4)"
+                >
+                    ← Torna indietro
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         POPUP
+    ========================================== -->
+
+    <div
+        id="confirmationOverlay"
+        class="overlay hidden"
+    >
+
+        <div class="confirmation-popup">
+
+            <button
+                class="popup-close"
+                onclick="closePopup()"
+                aria-label="Chiudi"
+            >
+                ×
+            </button>
+
+            <div class="popup-ornament">
+                ❦
+            </div>
+
+            <span class="small-label">
+                CASA CASTELMERLO
+            </span>
+
+            <h2>
+                You're On The List!
+            </h2>
+
+            <p>
+
+                Lo chef è stato informato.
+
+                <br>
+
+                La pressione è ufficialmente salita.
+
+            </p>
+
+            <div class="approved-stamp">
+                GUEST LIST APPROVED
+            </div>
+
+            <p class="popup-message">
+
+                Le migliori serate non hanno bisogno
+                di una casa perfetta.
+
+                <br>
+
+                Bastano le persone giuste
+                intorno allo stesso tavolo. ♡
+
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="sendWhatsApp()"
+            >
+                Conferma su WhatsApp ↗
+            </button>
+
+            <p class="popup-note">
+                Ricordatevi di premere Invia su WhatsApp!
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
